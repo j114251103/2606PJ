@@ -14,3 +14,15 @@ void add_container(Container** head, int id) {
     new_node->next = *head;
     *head = new_node;
 }
+
+// feat/delete 分支 - commit: c2_del_func
+void delete_container(Container** head, int id) {
+    Container* current = *head;
+    while (current != NULL) {
+        if (current->id == id) {
+            free(current); 
+            return;
+        }
+        current = current->next;
+    }
+}
